@@ -157,9 +157,13 @@ curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/install
 مراحل نصب آن به ترتیب زیر : 
 
 2
+
 12
+
 y
+
 y
+
 1
 
 
