@@ -209,6 +209,14 @@ sudo nano /etc/ssh/sshd_config
 systemctl restart sshd
 ````
 
+اضافه کردن ای پی floating به سرور
+
+
+````
+sudo ip addr add 78.128.162.388 dev eth0
+````
+````
+
 =====================================================================
 
 
