@@ -68,14 +68,6 @@ bash <(curl -s https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/Ss
 
 =====================================================================
 
-7. دوباره باز هم به کد زیر را برای بستن آی پی ایران وارد کنید
-
-````
-bash <(curl -s https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/Ssh-User-management-main/block-iran.sh --ipv4)
-````
-
-
-=====================================================================
 
 8. کد بستن تورنت و امثال اینها برای نخوردن ABUSE یا همان اخطار سرورتان از طرف دیتاسنتر
 
@@ -87,7 +79,33 @@ wget https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/blockpublict
 
 =====================================================================
 
-9. باید یک سری ای پی ها و آدرس هارو ببیندید تا از خطر ABUSE در امان باشید
+9. بستن پورت های اضافی و باز کردن پورت های لازم:
+
+
+````
+ufw allow 80/tcp
+ufw allow 80/udp
+ufw allow 443/tcp
+ufw allow 443/udp
+ufw allow 7301/tcp
+ufw allow 7301/udp
+ufw allow 28/tcp
+ufw allow 28/udp
+ufw deny out from any to 10.0.0.0/8
+ufw deny out from any to 172.16.0.0/12
+ufw deny out from any to 192.168.0.0/16
+ufw deny out from any to 100.64.0.0/10
+ufw deny out from any to 141.101.78.0/23
+ufw deny out from any to 173.245.48.0/20
+ufw deny out from any to 192.0.2.0/24
+ufw enable
+````
+
+
+=====================================================================
+
+
+10. باید یک سری ای پی ها و آدرس هارو ببیندید تا از خطر ABUSE در امان باشید
 
 
 کد هارا دسته ای وارد کنید
@@ -115,6 +133,12 @@ iptables -A OUTPUT -o eth0 -d 209.237.192.0/18 -j DROP
 iptables -A OUTPUT -o eth0 -d 169.254.0.0/16 -j DROP
 ````
 
+
+````
+iptables-save
+````
+
+
 =========================
 
 ````
@@ -131,23 +155,10 @@ iptables -A OUTPUT -p tcp -s 0/0 -d 173.245.48.0/20 -j DROP
 iptables -A OUTPUT -p tcp -s 0/0 -d 192.0.2.0/24 -j DROP
 ````
 
-=========================
-
-````
-ufw deny out from any to 10.0.0.0/8
-ufw deny out from any to 172.16.0.0/12
-ufw deny out from any to 192.168.0.0/16
-ufw deny out from any to 100.64.0.0/10
-ufw deny out from any to 141.101.78.0/23
-ufw deny out from any to 173.245.48.0/20
-ufw deny out from any to 192.0.2.0/24
-````
-
-=========================
-
 ````
 iptables-save
 ````
+
 
 کد های بالا را وارد کنید 
 
@@ -155,22 +166,6 @@ iptables-save
 
 =====================================================================
 
-10. بستن پورت های اضافی و باز کردن پورت های لازم:
-
-
-````
-ufw allow 80/tcp
-ufw allow 80/udp
-ufw allow 443/tcp
-ufw allow 443/udp
-ufw allow 7301/tcp
-ufw allow 7301/udp
-ufw allow 28/tcp
-ufw allow 28/udp
-enable ufw
-````
-
-=====================================================================
 
 
 تا به اینجا مراحل نصب به اتمام رسیده حالا یک یوزر ساخته و متصل شوید و وارد سایت گوگل شوید اگر سایت گوگل را باز کرد که همه چیز درست است اگر باز نکرد و با خطای 403 مواجع شدید باید کد زیر را وارد کنید
@@ -209,12 +204,32 @@ sudo nano /etc/ssh/sshd_config
 systemctl restart sshd
 ````
 
-اضافه کردن ای پی floating به سرور
+اضافه کردن ای پی floating به سرور به صورت موفقت
 
 
 ````
 sudo ip addr add 78.128.162.388 dev eth0
 ````
+
+اضافه کردن ای پی floating به صورت دایمی
+
+
+````
+nano /etc/netplan/60-floating-ip.yaml
+````
+
+````
+network:
+   version: 2
+   renderer: networkd
+   ethernets:
+     eth0:
+       addresses:
+       - ip/32
+````
+
+````
+sudo netplan apply
 ````
 
 =====================================================================
