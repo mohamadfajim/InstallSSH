@@ -23,7 +23,7 @@ UDPGW PORT هم عدد 7301 قرار بدید
 بعد از نصب لینک پنل - نام کاربری - کلمه عبور - پورت نشان میدهد
 
 ````
-bash <(curl -Ls https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/Ssh-User-management-main/install.sh --ipv4)
+bash <(curl -Ls https://raw.githubusercontent.com/HamedAp/Ssh-User-management/master/install.sh --ipv4)
 ````
 
 مثال لینک پنل: http://ipserver/p/index.php
