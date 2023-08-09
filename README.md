@@ -48,7 +48,7 @@ systemctl restart sshd
 5. کد های زیر را به منظور بستن آی پی های ایران برای حفاظت بیشتر از فیلتر شدن آی پی سرور وارد کنید
 
 ````
-bash <(curl -s https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/wepn-master/wepn.sh)
+bash <(curl -s https://raw.githubusercontent.com/elemen3/wepn/master/wepn.sh)
 ````
 
 
