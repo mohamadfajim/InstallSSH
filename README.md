@@ -60,7 +60,7 @@ bash <(curl -s https://raw.githubusercontent.com/elemen3/wepn/master/wepn.sh)
 
 
 ````
-bash <(curl -s https://raw.githubusercontent.com/mohamadfajim/InstallSSH/main/Ssh-User-management-main/newblockiran.sh --ipv4)
+bash <(curl -s https://raw.githubusercontent.com/HamedAp/Ssh-User-management/main/block-iran.sh)
 ````
 
 
